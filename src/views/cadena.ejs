@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+  <!-- head -->
+  <%- include('./partials/head.ejs') %>
+
+  <body>
+    <!-- h e a d e r -->
+    <%- include('./partials/header.ejs') %>
+
+    <main>
+      <section>
+        <center>
+          <h2>Cadena</h2>
+          <p>
+            Escriba la función number_cardinality() que toma un número entero y
+            devuelve una cadena, de la siguiente manera:Devuelve la cadena
+            zero si el número termina en 0 Devuelve la cadena five si el número
+            termina en 5 Devuelve la cadena even si el número es par (divisible
+            por 2) Y no termina en 0 Devuelve la cadena odd si el número es
+            impar (no divisible por 2) Y no termina en 5 Asegúrese de que su
+            cadena de retorno sea exactamente como la anterior, usando letras
+            minúsculas.
+          </p>
+        </center>
+      </section>
+      <section class="containerLogica">
+        <script>
+          function number_cardinality(number) {
+            const lastDigit = number % 10;
+
+            if (lastDigit === 0) {
+              return "zero";
+            } else if (lastDigit === 5) {
+              return "five";
+            } else if (number % 2 === 0) {
+              return "even";
+            } else {
+              return "odd";
+            }
+          }
+
+          function displayCardinality() {
+            const number = parseInt(
+              document.getElementById("inputNumber").value
+            );
+            const result = number_cardinality(number);
+            const resultContainer = document.getElementById("resultContainer");
+            resultContainer.textContent = result;
+          }
+
+          function clearInputAndResult() {
+            document.getElementById("inputNumber").value = "";
+            document.getElementById("resultContainer").textContent = "";
+          }
+        </script>
+
+        <h1>Number Cardinality</h1>
+        <label for="inputNumber">Ingrese un número:</label>
+        <input type="number" id="inputNumber" />
+        <button onclick="displayCardinality()">Mostrar Cardinalidad</button>
+        <button onclick="clearInputAndResult()">Limpiar</button>
+        <div id="resultContainer"></div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <%- include('./partials/footer.ejs') %>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
